@@ -6,7 +6,7 @@ public class FibonaciiOfRange {
 	Scanner sc = new Scanner(System.in);
 	 System.out.print("Enter the Starting of Range :" );
 	 int start = sc.nextInt();
-	 System.out.print(" Enter the Ending point of Range : ");
+	 System.out.print("Enter the Ending point of Range : ");
 	 int end = sc.nextInt();
 	 
 	 sc.close();
