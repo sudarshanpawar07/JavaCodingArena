@@ -7,7 +7,7 @@ public class NumberDriver {
 		Number n1 = new NumberImp();
 		n1.prime(11);
 		n1.reverse(1234);
-		n1.m1();
+		Number.m1();
 	}
 
 }
