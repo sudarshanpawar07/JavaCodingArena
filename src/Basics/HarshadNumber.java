@@ -39,10 +39,9 @@ public class HarshadNumber {
 }
 
 /*
- 
  Example with 24:
  The digits are 2 and 4.
- The sum of the digits is \(2+4=6\).
+ The sum of the digits is (2+4=6).
  24 divided by 6 is 4.Since 4 is a whole number, 
  24 is a Harshad number.
  
