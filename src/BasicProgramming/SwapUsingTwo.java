@@ -1,8 +1,8 @@
-package Programming;
+package BasicProgramming;
 
 import java.util.Scanner;
 
-public class SwapUsingThree {
+public class SwapUsingTwo {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -12,10 +12,9 @@ public class SwapUsingThree {
 		int num2 = sc.nextInt();
 		sc.close();
 		System.out.println("Number Before Swapping : " + " num1 : " + num1 + " num2 : " + num2);
-		int temp = num1;
-		num1 = num2;
-		num2 = temp;
-
+		num1 = num1 + num2;
+		num2 = num1 - num2;
+		num1 = num1 - num2;
 		System.out.println("Number After Swapping : " + " num1 : " + num1 + " num2 : " + num2);
 
 	}
