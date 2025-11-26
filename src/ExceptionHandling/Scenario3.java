@@ -1,6 +1,6 @@
 package ExceptionHandling;
 
-public class Scaenario3 {
+public class Scenario3 {
 
 	public static void main(String[] args) {
 		try {
