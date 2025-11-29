@@ -35,7 +35,7 @@ public class OmgDriver {
 				order = new ChickenBiryani();
 				break;
 			case 5:
-				// RECEIPT (only grand total)
+				// RECEIPT 
 				System.out.println("----- RECEIPT -----");
 				System.out.println("Total Amount: " + grandTotal);
 				System.out.println("-------------------");
@@ -50,7 +50,7 @@ public class OmgDriver {
 				continue;
 			}
 
-			// if food selected (1–4)
+			// if food selected 
 			if (order != null) {
 				order.prepareFood();
 
