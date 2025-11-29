@@ -1,9 +1,9 @@
 package OMG;
 
 public class Pizza implements Order {
-	private double price = 150;
-	private double seasoningCharge = 0;
-	private double cheeseCharge = 0;
+	double price = 150;
+	double seasoningCharge = 0;
+	double cheeseCharge = 0;
 
 	public void prepareFood() {
 		System.out.println("Preparing Burger..");

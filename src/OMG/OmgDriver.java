@@ -35,13 +35,13 @@ public class OmgDriver {
 				order = new ChickenBiryani();
 				break;
 			case 5:
-				// RECEIPT 
+				
 				System.out.println("----- RECEIPT -----");
 				System.out.println("Total Amount: " + grandTotal);
 				System.out.println("-------------------");
 				continue; // back to menu
 			case 6:
-				// EXIT
+				
 				running = false;
 				System.out.println("Thank you. Visit again!");
 				continue;
