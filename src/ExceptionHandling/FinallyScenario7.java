@@ -9,9 +9,8 @@ public class FinallyScenario7 {
 			System.out.println(10 / 0);
 		} catch (ArithmeticException ae) {
 			System.out.println("catch  ");
-			for(;;)
-			{
-				
+			for (;;) {
+
 			}
 		} finally {
 			System.out.println("finally  ");
