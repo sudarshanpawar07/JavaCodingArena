@@ -6,7 +6,7 @@ public class ChickenBiryani implements Order {
 	double cheeseCharge = 0;
 
 	public void prepareFood() {
-		System.out.println("Preparing Burger..");
+		System.out.println("Preparing Chicken Biryani..");
 	}
 
 	public void seasoning() {

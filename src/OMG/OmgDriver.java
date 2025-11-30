@@ -6,7 +6,7 @@ public class OmgDriver {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		boolean running = true;
-		double grandTotal = 0; // total of all orders
+		double grandTotal = 0; 
 
 		while (running) {
 			System.out.println("----- MENU -----");
@@ -23,7 +23,7 @@ public class OmgDriver {
 
 			switch (choice) {
 			case 1:
-				order = new Pizza();
+				order = new Pizza("pizza");
 				break;
 			case 2:
 				order = new Burger();
@@ -37,6 +37,7 @@ public class OmgDriver {
 			case 5:
 				
 				System.out.println("----- RECEIPT -----");
+				
 				System.out.println("Total Amount: " + grandTotal);
 				System.out.println("-------------------");
 				continue; // back to menu
@@ -68,7 +69,8 @@ public class OmgDriver {
 
 				double amount = order.getBill();
 				System.out.println("Amount for this order: " + amount);
-				grandTotal += amount; // add to receipt total
+				
+				grandTotal += amount; 
 				System.out.println("------------------------------");
 			}
 		}

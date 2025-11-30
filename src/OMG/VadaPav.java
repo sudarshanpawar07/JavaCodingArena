@@ -6,7 +6,7 @@ public class VadaPav implements Order {
 	double cheeseCharge = 0;
 
 	public void prepareFood() {
-		System.out.println("Preparing Burger..");
+		System.out.println("Preparing Vadapav..");
 	}
 
 	public void seasoning() {

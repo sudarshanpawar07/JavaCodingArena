@@ -1,0 +1,28 @@
+package ExceptionHandling;
+
+public class FinallyScenario {
+
+	public static void main(String[] args) {
+		System.out.println("main starts");
+		m1();
+		System.out.println("main ends");
+	}
+	
+	public static void m1()
+	{
+		System.out.println("m1() starts");
+		try {
+			System.out.println("try block");
+			System.out.println();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Catch exception");
+		}
+		finally {
+			System.out.println("finally");
+		}
+		System.out.println("m1() ends");
+	}
+
+}

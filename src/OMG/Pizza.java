@@ -5,8 +5,12 @@ public class Pizza implements Order {
 	double seasoningCharge = 0;
 	double cheeseCharge = 0;
 
+	public Pizza(String name) {
+		System.out.println(name);
+	}
+
 	public void prepareFood() {
-		System.out.println("Preparing Burger..");
+		System.out.println("Preparing Pizza..");
 	}
 
 	public void seasoning() {
