@@ -9,6 +9,14 @@ public class BackwardTraversingUsingForLoop {
 			System.out.print(arr[i] + " ");
 		}
 
+		System.out.println("\nUsing While loop : ");
+		int i = arr.length - 1;
+
+		while (i >= 0) {
+			System.out.print(arr[i] + " ");
+			i--;
+		}
+
 	}
 
 }
