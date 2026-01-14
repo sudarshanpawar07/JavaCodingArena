@@ -196,4 +196,14 @@ public final class UserString {
 		return this.length() == 0;
 	}
 
+	public char[] toCharArray() {
+		char[] newArr = new char[this.arr.length];
+		int indx = 0;
+		for (char ele : this.arr)
+			newArr[indx++] = ele;
+		return newArr;
+	}
+	
+	
+
 }
