@@ -101,4 +101,99 @@ public final class UserString {
 		}
 		return output;
 	}
+
+	public char charAt(int indx) {
+		if (indx < 0 || indx > arr.length - 1) {
+			throw new UserStringIndexOutOfBoundsException("Invalid indx ..!");
+		}
+		return this.arr[indx];
+	}
+
+	public UserString concat(UserString str) {
+
+		char[] newArr = new char[this.arr.length + str.length()];
+		int indx = 0;
+		for (char ele : this.arr)
+			newArr[indx++] = ele;
+		for (int i = 0; i < str.length(); i++) {
+			newArr[indx++] = str.charAt(i);
+		}
+		return new UserString(newArr);
+	}
+
+	public UserString toUpperCase() {
+//		UserString newStr = new UserString();
+		char[] newArr = new char[this.arr.length];
+
+		int indx = 0;
+		for (char ele : this.arr)
+			newArr[indx++] = ele;
+		int indx1 = 0;
+		for (char ele : newArr) {
+			if (ele >= 97 && ele <= 122) {
+				newArr[indx1] = (char) (ele - 32);
+			}
+			indx1++;
+		}
+		return new UserString(newArr);
+	}
+
+	public UserString toLowerCase() {
+
+		char[] newArr = new char[this.arr.length];
+
+		int indx = 0;
+		for (char ele : this.arr)
+			newArr[indx++] = ele;
+
+		int indx1 = 0;
+		for (char ele : newArr) {
+			if (ele >= 65 && ele <= 90) {
+				newArr[indx1] = (char) (ele + 32);
+			}
+			indx1++;
+		}
+		return new UserString(newArr);
+	}
+
+	public int codePointAt(int indx) {
+		if (indx < 0 || indx > arr.length - 1) {
+			throw new UserStringIndexOutOfBoundsException("Invalid indx ..!");
+		}
+
+		return this.arr[indx] + 0;
+	}
+
+	public int codePointBefore(int indx) {
+		if (indx <= 0 || indx > arr.length) {
+			throw new UserStringIndexOutOfBoundsException("Invalid indx ..!");
+		}
+
+		return this.arr[indx - 1] + 0;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		UserString str = (UserString) obj;
+		if (str.length() != this.length())
+			return false;
+
+		for (int i = 0; i < str.length(); i++) {
+			if (this.charAt(i) != str.charAt(i)) {
+				return false;
+			}
+
+		}
+
+		return true;
+	}
+
+	public boolean equalsIgnoreCase(UserString comp) {
+		return comp.toUpperCase().equals(this.toUpperCase());
+	}
+
+	public boolean isEmpty() {
+		return this.length() == 0;
+	}
+
 }
