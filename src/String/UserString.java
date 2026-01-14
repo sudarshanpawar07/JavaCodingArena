@@ -203,7 +203,5 @@ public final class UserString {
 			newArr[indx++] = ele;
 		return newArr;
 	}
-	
-	
 
 }
