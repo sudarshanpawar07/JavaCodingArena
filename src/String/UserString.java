@@ -204,4 +204,20 @@ public final class UserString {
 		return newArr;
 	}
 
+	public boolean startsWith(UserString prefix) {
+
+		// condition 1 prefic longer than string
+		if (prefix.length() > this.arr.length) {
+			return false;
+		}
+
+//        compare character from start
+		for (int i = 0; i < prefix.arr.length; i++) {
+			if (this.arr[i] != prefix.arr[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 }
