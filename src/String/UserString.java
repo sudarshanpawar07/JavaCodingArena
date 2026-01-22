@@ -220,4 +220,53 @@ public final class UserString {
 		return true;
 	}
 
+	public UserString substring(int indx) {
+		return substring(indx, arr.length);
+	}
+
+	public UserString substring(int start, int end) {
+		if (start < 0 || start > arr.length - 1 || start > end)
+			throw new UserStringIndexOutOfBoundsException(" invalid index.");
+		UserString str = new UserString();
+		for (int i = start; i < end; i++) {
+			char ch = this.arr[i];
+			str = str.concat(new UserString(ch + " "));
+		}
+		return str;
+	}
+
+	public UserString trim() {
+		UserString str = new UserString();
+		int i = 0;
+		for (; i < this.arr.length; i++) {
+			if (arr[i] != ' ') {
+				break;
+			}
+		}
+		str = substring(i);
+		int j = str.length() - 1;
+		for (; j >= 0; j--) {
+			if (str.charAt(j) != ' ')
+				break;
+		}
+		str = str.substring(0, j + 1);
+		return str;
+	}
+
+//	public boolean startsWith(UserString str) {
+//		
+//		return startsWith(str, 0);
+//	}
+
+	public boolean startsWith(UserString str, int indx) {
+		if (str.length() > this.arr.length)
+			return false;
+		for (int i = 0, j = indx; i < str.length(); i++, j++) {
+			if (this.arr[j] != str.charAt(i))
+				return false;
+		}
+
+		return true;
+	}
+
 }
