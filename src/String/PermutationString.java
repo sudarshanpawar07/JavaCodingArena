@@ -1,4 +1,5 @@
 package String;
+
 public class PermutationString {
 	static int cnt = 1;
 
@@ -6,8 +7,8 @@ public class PermutationString {
 		String str = "abcde";
 		int perm = factorial(str.length());
 		System.out.println(str + " : " + perm);
-		permute(str.toCharArray(),0);
-		
+		permute(str.toCharArray(), 0);
+
 	}
 
 	public static int factorial(int num) {

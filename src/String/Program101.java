@@ -2,7 +2,7 @@ package String;
 
 public class Program101 {
 	public static void main(String[] args) {
-		int[][] arr = { {80,120} };
+		int[][] arr = { { 80, 120 } };
 		for (int[] arr1 : arr) {
 			System.out.println(solve(arr1));
 		}
