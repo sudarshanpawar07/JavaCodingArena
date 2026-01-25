@@ -2,7 +2,7 @@ package BasicProgramming;
 
 public class SquareSeries {
 	public static void main(String[] args) {
-		for (int i = 1, num = 12; i <= 5; i++, num++){
+		for (int i = 1, num = 12; i <= 5; i++, num++) {
 			int pow = 1;
 			int p = num % 2 == 0 ? 2 : 3;
 
