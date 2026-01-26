@@ -15,7 +15,7 @@ class UserIllegalArgumentException extends RuntimeException {
 	}
 }
 
-class UserArrayList<E>{
+class UserArrayList<E> {
 	private final int INITIAL_CAPACITY = 10;
 	private E[] arr;
 	private int indx;
@@ -87,5 +87,24 @@ class UserArrayList<E>{
 
 	public boolean isEmpty() {
 		return indx == 0;
+	}
+
+	public int indexOf(Object obj) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == obj) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public boolean contains(Object obj){
+
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == obj) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

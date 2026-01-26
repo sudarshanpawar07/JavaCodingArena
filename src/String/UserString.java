@@ -1,9 +1,7 @@
 package String;
 
-import java.io.Serializable;
-
 /* Custom Runtime Exception */
-class UserStringIndexOutOfBoundsException extends RuntimeException implements Serializable {
+class UserStringIndexOutOfBoundsException extends RuntimeException {
 	public UserStringIndexOutOfBoundsException(String description) {
 		super(description);
 	}
@@ -67,14 +65,14 @@ public final class UserString {
 		}
 	}
 
+	/* int[] Constructor */
 	public UserString(int[] arr, int offset, int count) {
-		if ((offset + count) > arr.length) {
+		if (offset + count > arr.length) {
 			throw new UserStringIndexOutOfBoundsException("index out of bounds");
 		}
 
 		this.arr = new char[count];
-
-		for (int i = offset, j = 0; i < (offset + count); i++) {
+		for (int i = offset, j = 0; i < offset + count; i++) {
 			this.arr[j++] = (char) arr[i];
 		}
 	}
@@ -84,12 +82,12 @@ public final class UserString {
 		this(arr, 0, arr.length);
 	}
 
-	/* Length Method */
+	/* Length */
 	public int length() {
 		return arr.length;
 	}
 
-	/* toString Override */
+	/* toString */
 	@Override
 	public String toString() {
 		if (arr.length == 0)
@@ -102,171 +100,158 @@ public final class UserString {
 		return output;
 	}
 
+	/* charAt */
 	public char charAt(int indx) {
 		if (indx < 0 || indx > arr.length - 1) {
-			throw new UserStringIndexOutOfBoundsException("Invalid indx ..!");
+			throw new UserStringIndexOutOfBoundsException("Invalid index");
 		}
 		return this.arr[indx];
 	}
 
+	/* concat */
 	public UserString concat(UserString str) {
-
 		char[] newArr = new char[this.arr.length + str.length()];
-		int indx = 0;
-		for (char ele : this.arr)
-			newArr[indx++] = ele;
-		for (int i = 0; i < str.length(); i++) {
-			newArr[indx++] = str.charAt(i);
-		}
+		int i = 0;
+
+		for (char ch : this.arr)
+			newArr[i++] = ch;
+
+		for (int j = 0; j < str.length(); j++)
+			newArr[i++] = str.charAt(j);
+
 		return new UserString(newArr);
 	}
 
+	/* toUpperCase */
 	public UserString toUpperCase() {
-//		UserString newStr = new UserString();
 		char[] newArr = new char[this.arr.length];
 
-		int indx = 0;
-		for (char ele : this.arr)
-			newArr[indx++] = ele;
-		int indx1 = 0;
-		for (char ele : newArr) {
-			if (ele >= 97 && ele <= 122) {
-				newArr[indx1] = (char) (ele - 32);
-			}
-			indx1++;
+		for (int i = 0; i < arr.length; i++) {
+			char ch = arr[i];
+			if (ch >= 97 && ch <= 122)
+				newArr[i] = (char) (ch - 32);
+			else
+				newArr[i] = ch;
 		}
 		return new UserString(newArr);
 	}
 
+	/* toLowerCase */
 	public UserString toLowerCase() {
-
 		char[] newArr = new char[this.arr.length];
 
-		int indx = 0;
-		for (char ele : this.arr)
-			newArr[indx++] = ele;
-
-		int indx1 = 0;
-		for (char ele : newArr) {
-			if (ele >= 65 && ele <= 90) {
-				newArr[indx1] = (char) (ele + 32);
-			}
-			indx1++;
+		for (int i = 0; i < arr.length; i++) {
+			char ch = arr[i];
+			if (ch >= 65 && ch <= 90)
+				newArr[i] = (char) (ch + 32);
+			else
+				newArr[i] = ch;
 		}
 		return new UserString(newArr);
 	}
 
+	/* codePointAt */
 	public int codePointAt(int indx) {
 		if (indx < 0 || indx > arr.length - 1) {
-			throw new UserStringIndexOutOfBoundsException("Invalid indx ..!");
+			throw new UserStringIndexOutOfBoundsException("Invalid index");
 		}
-
-		return this.arr[indx] + 0;
+		return this.arr[indx];
 	}
 
+	/* codePointBefore */
 	public int codePointBefore(int indx) {
 		if (indx <= 0 || indx > arr.length) {
-			throw new UserStringIndexOutOfBoundsException("Invalid indx ..!");
+			throw new UserStringIndexOutOfBoundsException("Invalid index");
 		}
-
-		return this.arr[indx - 1] + 0;
+		return this.arr[indx - 1];
 	}
 
+	/* equals */
 	@Override
 	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof UserString))
+			return false;
+
 		UserString str = (UserString) obj;
 		if (str.length() != this.length())
 			return false;
 
 		for (int i = 0; i < str.length(); i++) {
-			if (this.charAt(i) != str.charAt(i)) {
+			if (this.arr[i] != str.arr[i])
 				return false;
-			}
-
 		}
-
 		return true;
 	}
 
+	/* equalsIgnoreCase */
 	public boolean equalsIgnoreCase(UserString comp) {
 		return comp.toUpperCase().equals(this.toUpperCase());
 	}
 
+	/* isEmpty */
 	public boolean isEmpty() {
 		return this.length() == 0;
 	}
 
+	/* toCharArray */
 	public char[] toCharArray() {
 		char[] newArr = new char[this.arr.length];
-		int indx = 0;
-		for (char ele : this.arr)
-			newArr[indx++] = ele;
+		for (int i = 0; i < arr.length; i++)
+			newArr[i] = arr[i];
 		return newArr;
 	}
 
+	/* startsWith */
 	public boolean startsWith(UserString prefix) {
-
-		// condition 1 prefic longer than string
-		if (prefix.length() > this.arr.length) {
+		if (prefix.length() > this.arr.length)
 			return false;
-		}
 
-//        compare character from start
-		for (int i = 0; i < prefix.arr.length; i++) {
-			if (this.arr[i] != prefix.arr[i]) {
+		for (int i = 0; i < prefix.length(); i++) {
+			if (this.arr[i] != prefix.arr[i])
 				return false;
-			}
 		}
 		return true;
 	}
 
+	public boolean startsWith(UserString prefix, int indx) {
+		if (indx < 0 || indx + prefix.length() > this.arr.length)
+			return false;
+
+		for (int i = 0, j = indx; i < prefix.length(); i++, j++) {
+			if (this.arr[j] != prefix.charAt(i))
+				return false;
+		}
+		return true;
+	}
+
+	/* substring */
 	public UserString substring(int indx) {
 		return substring(indx, arr.length);
 	}
 
 	public UserString substring(int start, int end) {
-		if (start < 0 || start > arr.length - 1 || start > end)
-			throw new UserStringIndexOutOfBoundsException(" invalid index.");
-		UserString str = new UserString();
-		for (int i = start; i < end; i++) {
-			char ch = this.arr[i];
-			str = str.concat(new UserString(ch + " "));
+		if (start < 0 || start > arr.length || start > end)
+			throw new UserStringIndexOutOfBoundsException("Invalid index");
+
+		char[] newArr = new char[end - start];
+		for (int i = start, j = 0; i < end; i++) {
+			newArr[j++] = arr[i];
 		}
-		return str;
+		return new UserString(newArr);
 	}
 
+	/* trim */
 	public UserString trim() {
-		UserString str = new UserString();
-		int i = 0;
-		for (; i < this.arr.length; i++) {
-			if (arr[i] != ' ') {
-				break;
-			}
-		}
-		str = substring(i);
-		int j = str.length() - 1;
-		for (; j >= 0; j--) {
-			if (str.charAt(j) != ' ')
-				break;
-		}
-		str = str.substring(0, j + 1);
-		return str;
+		int i = 0, j = arr.length - 1;
+
+		while (i < arr.length && arr[i] == ' ')
+			i++;
+
+		while (j >= i && arr[j] == ' ')
+			j--;
+
+		return substring(i, j + 1);
 	}
-
-//	public boolean startsWith(UserString str) {
-//		
-//		return startsWith(str, 0);
-//	}
-
-	public boolean startsWith(UserString str, int indx) {
-		if (str.length() > this.arr.length)
-			return false;
-		for (int i = 0, j = indx; i < str.length(); i++, j++) {
-			if (this.arr[j] != str.charAt(i))
-				return false;
-		}
-
-		return true;
-	}
-
 }
