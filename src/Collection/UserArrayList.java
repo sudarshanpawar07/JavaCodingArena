@@ -98,7 +98,16 @@ class UserArrayList<E> {
 		return -1;
 	}
 
-	public boolean contains(Object obj){
+	public int lastIndexOf(Object obj) {
+		for (int i = arr.length - 1; i >= 0; i--) {
+			if (arr[i] == obj) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public boolean contains(Object obj) {
 
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == obj) {
