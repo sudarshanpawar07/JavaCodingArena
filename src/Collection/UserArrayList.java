@@ -7,7 +7,6 @@ class UserSuchNoException extends RuntimeException {
 		super();
 	}
 }
-
 class UserIllegalArgumentException extends RuntimeException {
 	public UserIllegalArgumentException(String desc) {
 		super(desc);
