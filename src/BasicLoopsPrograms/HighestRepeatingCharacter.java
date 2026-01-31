@@ -1,5 +1,4 @@
 package BasicLoopsPrograms;
-
 import java.util.Scanner;
 
 public class HighestRepeatingCharacter {
