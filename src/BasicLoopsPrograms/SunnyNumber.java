@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class SunnyNumber {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter the Number.");
+		System.out.print("Enter the Number : ");
 		int num = sc.nextInt();
+		sc.close();
 		int nextNum = num + 1;
 		int sqrt = (int) Math.sqrt(nextNum);
 
