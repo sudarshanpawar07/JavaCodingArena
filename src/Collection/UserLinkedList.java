@@ -59,10 +59,15 @@ public class UserLinkedList<E> {
 
 	public void addFirst(E ele) {
 		Node<E> newNode = new Node<E>(ele);
-		newNode.next = head;
-		head = newNode;
-		indx++;
-
+		if (indx == 0) {
+			head = newNode;
+			tail = head;
+			indx++;
+		} else {
+			newNode.next = head;
+			head = newNode;
+			indx++;
+		}
 	}
 
 	public E getFirst() {
