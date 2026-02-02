@@ -17,18 +17,24 @@ public class UserLinkedListDriver {
 		list.addLast(600000);
 		System.out.println(list);
 		System.out.println("---------------------------------");
-		
+
 		UserLinkedList<Integer> list1 = new UserLinkedList<Integer>();
-//		System.out.println(list1.isEmpty());
-//		list1.add(10);
-//		list1.add(20);
-//		list1.add(30);
-//		list1.add(40);
-//		list1.add(50);
-		list1.addFirst(40000);
-		list1.addLast(600000);
+		System.out.println(list1.isEmpty());
+		list1.add(10);
+		list1.add(20);
+		list1.add(30);
+		list1.add(40);
+		list1.add(50);
+
 		System.out.println(list1);
-		
+		list1.add(3, 70);
+		System.out.println(list1);
+		System.out.println(list1.remove(3));
+		System.out.println(list1);
+		System.out.println(list1.indexOf(50));
+		list1.removeFirst();
+		list1.clear();
+		System.out.println(list1);
 
 	}
 
