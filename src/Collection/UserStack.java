@@ -14,15 +14,14 @@ public class UserStack<E> {
 	}
 
 	@Override
-	public String toString()
-	{
-		if(indx == 0) return "[]";
-		String op = "[ " ;
-		for(int i = 0; i <indx; i++)
-		{
+	public String toString() {
+		if (indx == 0)
+			return "[]";
+		String op = "[";
+		for (int i = 0; i < indx - 1; i++) {
 			op += arr[i] + " , ";
 		}
-		return op + "]";
+		return op + arr[indx - 1] + "]";
 	}
 
 	public E push(E ele) {
