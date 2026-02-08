@@ -24,13 +24,13 @@ public class StudentYopAscending implements Comparator<Student> {
 		list.stream().forEach(ele -> System.out.println(ele));
 		System.out.println("---------------------------------");
 		System.out.println("---------------CGPA--------------");
-		list.sort((ele1, ele2)->(int) (ele1.cgpa - ele2.cgpa));
+		list.sort((ele1, ele2) -> (int) (ele1.cgpa - ele2.cgpa));
 		list.stream().forEach(ele -> System.out.println(ele));
 		System.out.println("---------------nameAscending--------------");
-		list.sort((ele1, ele2)->ele1.name.compareTo(ele2.name));
+		list.sort((ele1, ele2) -> ele1.name.compareTo(ele2.name));
 		list.stream().forEach(ele -> System.out.println(ele));
 		System.out.println("---------------nameDescending--------------");
-		list.sort((ele1, ele2)->ele2.name.compareTo(ele1.name));
+		list.sort((ele1, ele2) -> ele2.name.compareTo(ele1.name));
 		list.stream().forEach(ele -> System.out.println(ele));
 
 	}
