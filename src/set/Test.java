@@ -15,7 +15,7 @@ public class Test {
 	}
 
 	public Test(int id, String name, float per, long contact, char gen) {
-	
+
 		this.id = id;
 		this.name = name;
 		this.per = per;
@@ -41,6 +41,11 @@ public class Test {
 		Test other = (Test) obj;
 		return contact == other.contact && gen == other.gen && id == other.id && Objects.equals(name, other.name)
 				&& Float.floatToIntBits(per) == Float.floatToIntBits(other.per);
+	}
+
+	@Override
+	public String toString() {
+		return "id=" + id + ", name=" + name + ", per=" + per + ", contact=" + contact + ", gen=" + gen;
 	}
 
 }
