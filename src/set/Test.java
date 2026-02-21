@@ -15,7 +15,7 @@ public class Test {
 	}
 
 	public Test(int id, String name, float per, long contact, char gen) {
-		super();
+	
 		this.id = id;
 		this.name = name;
 		this.per = per;
