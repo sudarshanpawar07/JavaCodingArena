@@ -7,6 +7,7 @@ public class LinkedListDriver {
 		list.add(20);
 		list.add(30);
 		System.out.println(list);
+		System.out.println(list.get(0));
 	}
 
 }

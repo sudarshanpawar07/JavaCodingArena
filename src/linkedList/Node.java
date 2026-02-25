@@ -6,13 +6,13 @@ public class Node<E> {
 	Node<E> prev;
 	Node<E> next;
 	E val;
-	int indx;
+	
 
 	private Node() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Node(Node<E> prev, Node<E> next, E val, int indx) {
+	public Node(Node<E> prev, Node<E> next, E val) {
 		super();
 		this.prev = prev;
 		this.next = next;
