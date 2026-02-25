@@ -88,26 +88,6 @@ public class LinkedList<E> {
 		return temp != index;
 	}
 
-	public boolean remove(E ele) {
-		if (head != null) {
-			if (head.val.equals(ele)) {
-				if (head.next != null) {
-					head = head.next;
-					head.prev = null;
-				} else {
-					head = null;
-				}
-				index--;
-				return true;
-			}else if(tail.val.equals(ele))
-			{
-				tail  = tail.prev;
-				tail.next = null;
-			}
-
-		}
-	}
-
 	public int indexOf(E ele) {
 		int indx = 0;
 		Iterator<E> itr = iterator();
@@ -141,6 +121,11 @@ public class LinkedList<E> {
 
 	}
 
+//	public boolean addAll(LinkedList<E> list) {
+//
+//		return addAll(index, list);
+//	}
+
 	public boolean addAll(int index, LinkedList<E> list) {
 		Iterator<E> itr = list.iterator();
 		while (itr.hasNext()) {
@@ -150,7 +135,37 @@ public class LinkedList<E> {
 		return true;
 	}
 
-	public boolean remove() {
+	public boolean add(int index, E ele) {
+		if (index < 0 || index > this.index) {
+			return false;
+		} else {
+			if (index == 0) {
+				Node<E> temp = new Node<E>(null, head, ele);
+				head.prev = temp;
+				head = temp;
+				this.index++;
+				curr = head;
+				return true;
+			} else if (index == this.index) {
+				return add(ele);
+			} else {
+				Node<E> temp = null;
+				for (int i = 0; i < index; i++) {
+					temp = nextRef();
+				}
+
+				Node<E> newNode = new Node<E>(temp, temp.next, ele);
+				temp.next = newNode;
+				newNode.next.prev = newNode;
+				this.index++;
+				curr = head;
+				return true;
+
+			}
+		}
+	}
+
+	public boolean remove(E ele) {
 		if (head != null) {
 			if (head.val.equals(ele)) {
 				if (head.next != null) {
@@ -168,7 +183,7 @@ public class LinkedList<E> {
 				return true;
 			} else {
 				while (hasNextRef()) {
-					Node<E> ref = nextref();
+					Node<E> ref = nextRef();
 					if (ref.val.equals(ele)) {
 						Node<E> temp = ref.prev;
 						ref.prev.next = ref.next;
@@ -185,7 +200,7 @@ public class LinkedList<E> {
 	}
 
 	public E get(int index) {
-		if (index >= 0 || index < this.index) {
+		if (index >= 0 && index < this.index) {
 			Iterator<E> itr = iterator();
 			int indx = 0;
 			E temp = null;
@@ -204,6 +219,7 @@ public class LinkedList<E> {
 	}
 
 	public Iterator<E> iterator() {
+		curr = head;
 		return new Itr<E>();
 	}
 
@@ -213,7 +229,7 @@ public class LinkedList<E> {
 		return temp;
 	}
 
-	private boolean hasNextref() {
+	private boolean hasNextRef() {
 		return curr != null;
 	}
 
